@@ -1,0 +1,40 @@
+<h2>Editar Produto</h2>
+
+<%= form_with(model: @produto, local: true) do |form| %>
+  <% if @produto.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@produto.errors.count, "erro") %> encontrado:</h4>
+      <ul style="margin: 10px 0 0 20px;">
+        <% @produto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :descricao, "Descrição" %>
+    <%= form.text_area :descricao %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :quantidade_estoque, "Quantidade em estoque" %>
+    <%= form.number_field :quantidade_estoque, required: true, min: 0 %>
+    <small style="color: #666;">Cuidado ao alterar diretamente o estoque. Use as movimentações para controle adequado.</small>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :preco, "Preço (R$)" %>
+    <%= form.number_field :preco, step: 0.01, min: 0 %>
+  </div>
+
+  <div class="mt-3">
+    <%= form.submit "Atualizar Produto", class: "btn btn-success" %>
+    <%= link_to "Cancelar", @produto, class: "btn" %>
+  </div>
+<% end %>

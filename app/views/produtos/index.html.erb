@@ -1,0 +1,43 @@
+<h2>Lista de Produtos</h2>
+
+<%= link_to "Novo Produto", new_produto_path, class: "btn btn-success" %>
+
+<% if @produtos.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Estoque Atual</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @produtos.each do |produto| %>
+        <tr>
+          <td><%= link_to produto.nome, produto, style: "text-decoration: none; color: #007bff;" %></td>
+          <td><%= produto.descricao %></td>
+          <td class="text-center">
+            <strong><%= produto.quantidade_estoque %></strong>
+          </td>
+          <td class="text-right">
+            <% if produto.preco.present? %>
+              R$ <%= number_with_precision(produto.preco, precision: 2) %>
+            <% else %>
+              -
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Ver", produto, class: "btn" %>
+            <%= link_to "Editar", edit_produto_path(produto), class: "btn" %>
+            <%= link_to "Excluir", produto, method: :delete, 
+                        confirm: "Tem certeza?", class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Nenhum produto cadastrado ainda.</p>
+<% end %>

@@ -1,0 +1,48 @@
+<h2><%= @produto.nome %></h2>
+
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+  <p><strong>Descrição:</strong> <%= @produto.descricao.presence || "Não informada" %></p>
+  <p><strong>Estoque Atual:</strong> <span style="font-size: 18px; color: #007bff;"><%= @produto.quantidade_estoque %> unidades</span></p>
+  <p><strong>Preço:</strong> 
+    <% if @produto.preco.present? %>
+      R$ <%= number_with_precision(@produto.preco, precision: 2) %>
+    <% else %>
+      Não informado
+    <% end %>
+  </p>
+</div>
+
+<div style="margin-bottom: 30px;">
+  <%= link_to "Nova Movimentação", new_produto_movimentacao_path(@produto), class: "btn btn-success" %>
+  <%= link_to "Editar Produto", edit_produto_path(@produto), class: "btn" %>
+  <%= link_to "Ver Histórico Completo", produto_movimentacoes_path(@produto), class: "btn" %>
+  <%= link_to "Voltar", produtos_path, class: "btn" %>
+</div>
+
+<h3>Últimas Movimentações</h3>
+<% if @movimentacoes.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Tipo</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movimentacoes.each do |movimentacao| %>
+        <tr>
+          <td><%= movimentacao.data_movimentacao.strftime("%d/%m/%Y") %></td>
+          <td>
+            <span class="badge badge-<%= movimentacao.tipo %>">
+              <%= movimentacao.tipo.upcase %>
+            </span>
+          </td>
+          <td class="text-center"><%= movimentacao.quantidade %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Nenhuma movimentação registrada ainda.</p>
+<% end %>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema de Controle de Estoque</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+      .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .header { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+      .header h1 { color: #007bff; margin: 0; }
+      .nav { margin: 20px 0; }
+      .nav a { text-decoration: none; color: #007bff; margin-right: 15px; padding: 8px 12px; border-radius: 4px; transition: background-color 0.3s; }
+      .nav a:hover { background-color: #e9ecef; }
+      table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+      th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+      th { background-color: #f8f9fa; font-weight: bold; }
+      tr:hover { background-color: #f8f9fa; }
+      .btn { display: inline-block; padding: 8px 16px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; margin-right: 10px; }
+      .btn:hover { background-color: #0056b3; }
+      .btn-danger { background-color: #dc3545; }
+      .btn-danger:hover { background-color: #c82333; }
+      .btn-success { background-color: #28a745; }
+      .btn-success:hover { background-color: #218838; }
+      .form-group { margin-bottom: 15px; }
+      .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+      .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+      .form-group textarea { height: 80px; resize: vertical; }
+      .alert { padding: 12px; margin-bottom: 20px; border-radius: 4px; }
+      .alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+      .alert-danger { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+      .errors { color: #dc3545; font-size: 14px; margin-top: 5px; }
+      .badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+      .badge-entrada { background-color: #d4edda; color: #155724; }
+      .badge-saida { background-color: #f8d7da; color: #721c24; }
+      .text-center { text-align: center; }
+      .text-right { text-align: right; }
+      .mt-3 { margin-top: 20px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sistema de Controle de Estoque</h1>
+      </div>
+      
+      <nav class="nav">
+        <%= link_to "Produtos", produtos_path %>
+        <%= link_to "Novo Produto", new_produto_path %>
+        <%= link_to "Todas as Movimentações", movimentacoes_path %>
+      </nav>
+      
+      <% if notice %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end %>
+      
+      <% if alert %>
+        <div class="alert alert-danger"><%= alert %></div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>
