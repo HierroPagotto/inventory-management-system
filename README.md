@@ -116,12 +116,3 @@ http://localhost:3000
 Execute `rails db:seed` para criar:
 - 5 produtos de exemplo (notebooks, periféricos, etc.)
 - Movimentações aleatórias para cada produto
-
-## 🚦 Possíveis Melhorias
-
-- [ ] Relatórios e gráficos de estoque
-- [ ] Categorias de produtos
-- [ ] Fornecedores
-- [ ] API REST
-- [ ] Testes automatizados
-- [ ] Deploy em produção

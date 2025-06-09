@@ -1,4 +1,3 @@
-# Criando produtos de exemplo
 produtos = [
   {
     nome: "Notebook Dell",
@@ -36,12 +35,10 @@ produtos.each do |produto_attrs|
   produto = Produto.create!(produto_attrs)
   puts "Produto criado: #{produto.nome}"
   
-  # Criando algumas movimentações de exemplo
   rand(1..3).times do
     tipo = ['entrada', 'saida'].sample
     quantidade = rand(1..5)
     
-    # Evita que o estoque fique negativo
     if tipo == 'saida' && produto.quantidade_estoque < quantidade
       quantidade = [produto.quantidade_estoque, 1].max
     end
