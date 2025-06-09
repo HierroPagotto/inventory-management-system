@@ -19,10 +19,13 @@ class MovimentacoesController < ApplicationController
     @movimentacao.data_movimentacao = Date.current
     
     begin
-      if @movimentacao.save
-        redirect_to @produto, notice: 'Movimentação registrada com sucesso!'
-      else
-        render :new
+      ActiveRecord::Base.transaction do
+        if @movimentacao.save
+          @produto.save!
+          redirect_to @produto, notice: 'Movimentação registrada com sucesso!'
+        else
+          render :new
+        end
       end
     rescue => e
       @movimentacao.errors.add(:base, e.message)
