@@ -70,30 +70,6 @@ rails server
 http://localhost:3000
 ```
 
-## 🗄️ Estrutura do Banco de Dados
-
-### Tabela `produtos`
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| id | Integer (PK) | Identificador único |
-| nome | String | Nome do produto (obrigatório) |
-| descricao | Text | Descrição detalhada (opcional) |
-| quantidade_estoque | Integer | Quantidade atual em estoque |
-| preco | Decimal(10,2) | Preço unitário (opcional) |
-| created_at | DateTime | Data de criação |
-| updated_at | DateTime | Data da última atualização |
-
-### Tabela `movimentacoes`
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| id | Integer (PK) | Identificador único |
-| produto_id | Integer (FK) | Referência ao produto |
-| tipo | String | Tipo: 'entrada' ou 'saida' |
-| quantidade | Integer | Quantidade movimentada |
-| data_movimentacao | Date | Data da movimentação |
-| created_at | DateTime | Data de criação |
-| updated_at | DateTime | Data da última atualização |
-
 ## 🎯 Como Usar
 
 ### 1. Cadastrando um Produto
@@ -141,55 +117,11 @@ Execute `rails db:seed` para criar:
 - 5 produtos de exemplo (notebooks, periféricos, etc.)
 - Movimentações aleatórias para cada produto
 
-### Comandos Úteis:
-
-```bash
-rails routes
-
-rails console
-
-rails db:drop db:create db:migrate db:seed
-
-rails db:schema:dump
-```
-
-### Testando Funcionalidades:
-
-1. **Teste de Validação**: Tente criar produto sem nome
-2. **Teste de Estoque**: Tente fazer saída maior que estoque disponível
-3. **Teste de Navegação**: Acesse todas as páginas e links
-4. **Teste CRUD**: Crie, edite e exclua produtos
-
 ## 🚦 Possíveis Melhorias
 
-- [ ] Autenticação de usuários
 - [ ] Relatórios e gráficos de estoque
-- [ ] Alertas de estoque baixo
 - [ ] Categorias de produtos
 - [ ] Fornecedores
 - [ ] API REST
 - [ ] Testes automatizados
 - [ ] Deploy em produção
-- [ ] Interface mobile otimizada
-
-## 🐛 Solução de Problemas
-
-### Erro de Dependências:
-```bash
-bundle install
-```
-
-### Erro de Banco:
-```bash
-rails db:drop db:create db:migrate
-```
-
-### Porta Ocupada:
-```bash
-rails server -p 3001
-```
-
-### Limpar Cache:
-```bash
-rails tmp:clear
-```
