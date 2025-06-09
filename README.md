@@ -134,56 +134,6 @@ http://localhost:3000
 - **Exclusão de produto**: Remove também todas as movimentações relacionadas
 - **Atualização automática**: O estoque é recalculado a cada movimentação
 
-## 📁 Estrutura de Arquivos Principais
-
-```
-app/
-├── controllers/
-│   ├── application_controller.rb
-│   ├── produtos_controller.rb
-│   └── movimentacoes_controller.rb
-├── models/
-│   ├── produto.rb
-│   └── movimentacao.rb
-└── views/
-    ├── layouts/
-    │   └── application.html.erb
-    ├── produtos/
-    │   ├── index.html.erb
-    │   ├── show.html.erb
-    │   ├── new.html.erb
-    │   └── edit.html.erb
-    └── movimentacoes/
-        ├── index.html.erb
-        └── new.html.erb
-
-config/
-└── routes.rb
-
-db/
-├── migrate/
-│   ├── 001_create_produtos.rb
-│   └── 002_create_movimentacoes.rb
-└── seeds.rb
-```
-
-## 🛣️ Rotas da Aplicação
-
-| Método | Rota | Ação | Descrição |
-|--------|------|------|-----------|
-| GET | `/` | produtos#index | Página inicial (lista produtos) |
-| GET | `/produtos` | produtos#index | Lista todos os produtos |
-| GET | `/produtos/new` | produtos#new | Formulário novo produto |
-| POST | `/produtos` | produtos#create | Criar produto |
-| GET | `/produtos/:id` | produtos#show | Detalhes do produto |
-| GET | `/produtos/:id/edit` | produtos#edit | Formulário editar produto |
-| PATCH/PUT | `/produtos/:id` | produtos#update | Atualizar produto |
-| DELETE | `/produtos/:id` | produtos#destroy | Excluir produto |
-| GET | `/produtos/:id/movimentacoes` | movimentacoes#index | Histórico do produto |
-| GET | `/produtos/:id/movimentacoes/new` | movimentacoes#new | Nova movimentação |
-| POST | `/produtos/:id/movimentacoes` | movimentacoes#create | Criar movimentação |
-| GET | `/movimentacoes` | movimentacoes#index | Todas as movimentações |
-
 ## 🧪 Testando a Aplicação
 
 ### Dados de Exemplo
@@ -243,15 +193,3 @@ rails server -p 3001
 ```bash
 rails tmp:clear
 ```
-
-## 📄 Licença
-
-Este projeto está sob licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## ✨ Autor
-
-Desenvolvido com ❤️ usando Ruby on Rails
-
----
-
-⭐ Se este projeto foi útil para você, considere dar uma estrela no repositório!
