@@ -89,21 +89,6 @@ http://localhost:3000
 - "Ver Histórico Completo": todas as movimentações do produto
 - "Todas as Movimentações": histórico geral de todos os produtos
 
-## 🔒 Regras de Negócio
-
-### Validações Implementadas:
-
-**Produtos:**
-- Nome é obrigatório
-- Quantidade de estoque não pode ser negativa
-- Preço deve ser positivo (quando informado)
-
-**Movimentações:**
-- Tipo deve ser 'entrada' ou 'saida'
-- Quantidade deve ser maior que zero
-- Data é obrigatória
-- **Não permite estoque negativo**: saídas que resultariam em estoque negativo são bloqueadas
-
 ### Comportamento do Sistema:
 - **Entrada**: Adiciona quantidade ao estoque atual
 - **Saída**: Subtrai quantidade do estoque atual (com validação)
