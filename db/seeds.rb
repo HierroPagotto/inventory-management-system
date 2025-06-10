@@ -1,7 +1,7 @@
 produtos = [
   {
     nome: "Notebook Dell",
-    descricao: "Notebook Dell Inspiron 15 - Intel i5, 8GB RAM, 256GB SSD",
+    descricao: "Notebook Dell - Intel i5, 16GB RAM, 256GB SSD",
     quantidade_estoque: 10,
     preco: 2499.99
   },
@@ -13,12 +13,12 @@ produtos = [
   },
   {
     nome: "Teclado Mecânico",
-    descricao: "Teclado mecânico RGB com switches blue",
+    descricao: "Teclado mecânico RGB com switch blue",
     quantidade_estoque: 15,
     preco: 299.00
   },
   {
-    nome: "Monitor LED 24\"",
+    nome: "Monitor LED 24",
     descricao: "Monitor LED Full HD 24 polegadas",
     quantidade_estoque: 8,
     preco: 599.00
