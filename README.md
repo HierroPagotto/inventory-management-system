@@ -101,3 +101,17 @@ http://localhost:3000
 Execute `rails db:seed` para criar:
 - 5 produtos de exemplo (notebooks, periféricos, etc.)
 - Movimentações aleatórias para cada produto
+
+## 📚 O que eu aprendi
+
+- **Sintaxe do ruby on rails**
+- Estrutura de um projeto Rails (MVC - Model, View, Controller)
+- Criação de **CRUDs completos** com controllers personalizados
+- Uso de **migrations** para estruturar o banco de dados
+- Implementação de **validações de dados** nos modelos para garantir a integridade das informações
+
+### 🚧 Principais desafios
+
+- Lidar com a lógica de movimentação de estoque
+- Entender o fluxo entre controllers, models e views no Rails, principalmente no início do projeto
+- Eliminar bugs como o relacionamento entre produtos e suas movimentações
