@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.3.8'
 
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.0.3'
 gem 'sqlite3', '~> 2.7'
 gem 'puma', '~> 6.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
